@@ -1,0 +1,5 @@
+[[rules]]
+id = "flask-secret-key"
+description = "Flask app.secret_key hardcoded"
+regex = '''(?i)app\.secret_key\s*=\s*['"][^'"]+['"]'''
+tags = ["flask", "hardcoded", "secret-key"]

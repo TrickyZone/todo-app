@@ -1,0 +1,32 @@
+CREATE TABLE IF NOT EXISTS users (
+  id SERIAL PRIMARY KEY,
+  username TEXT UNIQUE NOT NULL,
+  password TEXT NOT NULL
+);
+
+CREATE TABLE IF NOT EXISTS todos (
+  id SERIAL PRIMARY KEY,
+  user_id INT REFERENCES users(id),
+  text TEXT NOT NULL
+);
+
+INSERT INTO users (username, password) VALUES ('admin','admin') ON CONFLICT DO NOTHING;
+
+CREATE TABLE IF NOT EXISTS users (
+  id SERIAL PRIMARY KEY,
+  username TEXT UNIQUE NOT NULL,
+  password TEXT NOT NULL
+);
+
+CREATE TABLE IF NOT EXISTS todos (
+  id SERIAL PRIMARY KEY,
+  user_id INTEGER REFERENCES users(id),
+  text TEXT NOT NULL
+);
+
+CREATE TABLE IF NOT EXISTS status_updates (
+  id SERIAL PRIMARY KEY,
+  user_id INTEGER REFERENCES users(id),
+  status_text TEXT NOT NULL,
+  created_date DATE DEFAULT CURRENT_DATE
+);

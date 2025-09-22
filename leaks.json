@@ -1,0 +1,77 @@
+[
+ {
+  "RuleID": "flask-secret-key",
+  "Description": "Flask app.secret_key hardcoded",
+  "StartLine": 7,
+  "EndLine": 7,
+  "StartColumn": 1,
+  "EndColumn": 36,
+  "Match": "app.secret_key = 'super-secret-keys'",
+  "Secret": "app.secret_key = 'super-secret-keys'",
+  "File": "app/app.py",
+  "SymlinkFile": "",
+  "Commit": "e4e30ee61df5bc1da5fe443b296888a087100634",
+  "Link": "https://gitlab.com/ci-docker3/pi-shaped-demo/blob/e4e30ee61df5bc1da5fe443b296888a087100634/app/app.py#L7",
+  "Entropy": 3.7487788,
+  "Author": "Mohd Saifi",
+  "Email": "mohd.saifi@beh.com",
+  "Date": "2025-09-22T07:04:42Z",
+  "Message": "Add security tools",
+  "Tags": [
+   "flask",
+   "hardcoded",
+   "secret-key"
+  ],
+  "Fingerprint": "e4e30ee61df5bc1da5fe443b296888a087100634:app/app.py:flask-secret-key:7"
+ },
+ {
+  "RuleID": "flask-secret-key",
+  "Description": "Flask app.secret_key hardcoded",
+  "StartLine": 7,
+  "EndLine": 7,
+  "StartColumn": 2,
+  "EndColumn": 36,
+  "Match": "app.secret_key = 'super-secret-key'",
+  "Secret": "app.secret_key = 'super-secret-key'",
+  "File": "app/app.py",
+  "SymlinkFile": "",
+  "Commit": "6124a0bbd81491c6aa9ffbceb6c0bab0383c6cd1",
+  "Link": "https://gitlab.com/ci-docker3/pi-shaped-demo/blob/6124a0bbd81491c6aa9ffbceb6c0bab0383c6cd1/app/app.py#L7",
+  "Entropy": 3.7602503,
+  "Author": "Mohd Saifi",
+  "Email": "mohd.saifi@beh.com",
+  "Date": "2025-09-21T17:07:34Z",
+  "Message": "Initial commit",
+  "Tags": [
+   "flask",
+   "hardcoded",
+   "secret-key"
+  ],
+  "Fingerprint": "6124a0bbd81491c6aa9ffbceb6c0bab0383c6cd1:app/app.py:flask-secret-key:7"
+ },
+ {
+  "RuleID": "flask-secret-key",
+  "Description": "Flask app.secret_key hardcoded",
+  "StartLine": 120,
+  "EndLine": 120,
+  "StartColumn": 4,
+  "EndColumn": 32,
+  "Match": "app.secret_key = 'secret-key'",
+  "Secret": "app.secret_key = 'secret-key'",
+  "File": "app/app.py",
+  "SymlinkFile": "",
+  "Commit": "6124a0bbd81491c6aa9ffbceb6c0bab0383c6cd1",
+  "Link": "https://gitlab.com/ci-docker3/pi-shaped-demo/blob/6124a0bbd81491c6aa9ffbceb6c0bab0383c6cd1/app/app.py#L120",
+  "Entropy": 3.7024715,
+  "Author": "Mohd Saifi",
+  "Email": "mohd.saifi@beh.com",
+  "Date": "2025-09-21T17:07:34Z",
+  "Message": "Initial commit",
+  "Tags": [
+   "flask",
+   "hardcoded",
+   "secret-key"
+  ],
+  "Fingerprint": "6124a0bbd81491c6aa9ffbceb6c0bab0383c6cd1:app/app.py:flask-secret-key:120"
+ }
+]

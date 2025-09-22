@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html>
+<head><meta charset="UTF-8"><title>Login / Sign Up</title>
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=Comfortaa:wght@300;700&display=swap');
+  body {
+    font-family: 'Comfortaa', cursive;
+    background: #ffefd5;
+    display: flex; justify-content: center; align-items: center; height: 100vh;
+    overflow: hidden;
+  }
+  .cloud {
+    position: absolute;
+    top: 50px;
+    width: 100px; height: 60px;
+    background: #fff;
+    border-radius: 50px;
+    animation: float 6s ease-in-out infinite;
+  }
+  .cloud:nth-child(1) { left: 10%; animation-delay: 0s; }
+  .cloud:nth-child(2) { left: 60%; animation-delay: 3s; }
+  @keyframes float {
+    0%,100% { transform: translateY(0); }
+    50% { transform: translateY(-20px); }
+  }
+  .box {
+    background: white;
+    padding: 30px;
+    border-radius: 15px;
+    box-shadow: 0 10px 20px rgba(0,0,0,0.1);
+    width: 300px;
+    text-align: center;
+    animation: popIn 0.5s ease-out;
+  }
+  @keyframes popIn {
+    from { transform: scale(0.8); opacity: 0; }
+    to { transform: scale(1); opacity: 1; }
+  }
+  input {
+    width: 100%; padding: 8px; margin: 10px 0; border-radius: 8px; border: 1px solid #ddd;
+  }
+  button {
+    width: 100%; padding: 10px; background: #ff8c00; border: none; border-radius: 8px;
+    color: white; font-weight: bold; cursor: pointer;
+  }
+  .toggle {
+    margin-top: 10px;
+    font-size: 0.9em;
+    color: #555;
+    cursor: pointer;
+  }
+</style>
+</head>
+<body>
+  <div class="cloud"></div>
+  <div class="cloud"></div>
+  <div class="box" id="auth-box">
+    <h2 id="form-title">Login</h2>
+    <form id="auth-form" method="post" action="/login">
+      <input name="username" placeholder="Username" required>
+      <input name="password" type="password" placeholder="Password" required>
+      <button type="submit">Submit</button>
+    </form>
+    <div class="toggle" id="toggle-link">Create an account?</div>
+  </div>
+
+<script>
+  let isLogin = true;
+  document.getElementById('toggle-link').onclick = () => {
+    isLogin = !isLogin;
+    const form = document.getElementById('auth-form');
+    document.getElementById('form-title').innerText = isLogin ? 'Login' : 'Sign Up';
+    form.action = isLogin ? '/login' : '/signup';
+    document.getElementById('toggle-link').innerText = isLogin ? 'Create an account?' : 'Already have an account?';
+  };
+</script>
+</body>
+</html>

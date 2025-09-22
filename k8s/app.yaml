@@ -1,0 +1,39 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: todoapp
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: todoapp
+  template:
+    metadata:
+      labels:
+        app: todoapp
+    spec:
+      containers:
+      - name: todoapp
+        image: muzakkirsaifi/fastapi:latest
+        ports:
+        - containerPort: 8081
+        env:
+        - name: POSTGRES_DB
+          value: todoapp
+        - name: POSTGRES_USER
+          value: todo
+        - name: POSTGRES_PASSWORD
+          value: todopw
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: todoapp
+spec:
+  type: NodePort
+  ports:
+  - port: 8081
+    targetPort: 8081
+    nodePort: 30001
+  selector:
+    app: todoapp
