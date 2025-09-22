@@ -1,0 +1,13 @@
+name: build-pipeline # name for the pipeline
+run-name: "Build by ${{ github.actor }} on branch ${{ github.ref_name }}"  #name for each run of the pipeline ex- Build by alice on branch main, Build by bob on branch feature-login
+
+on:
+  push
+
+
+jobs:
+  build:
+   runs-on: ubuntu-latest
+   steps:
+    - name: Say Hello
+      run: echo "Hello Python"
