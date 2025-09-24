@@ -1,13 +1,93 @@
-name: build-pipeline # name for the pipeline
-run-name: "Build by ${{ github.actor }} on branch ${{ github.ref_name }}"  #name for each run of the pipeline ex- Build by alice on branch main, Build by bob on branch feature-login
+name: CI/CD Pipeline with Environments
 
 on:
-  push
-
+  push:
+    branches:
+      - main
+      - develop
 
 jobs:
   build:
-   runs-on: ubuntu-latest
-   steps:
-    - name: Say Hello
-      run: echo "Hello Python"
+    name: Build Job
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout Code
+        uses: actions/checkout@v3
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v3
+        with:
+          node-version: '18'
+
+      - name: Build Project
+        run: |
+          echo "Building the project..."
+          npm install
+          npm run build
+
+  test:
+    name: Test Job
+    runs-on: ubuntu-latest
+    needs: build
+    steps:
+      - name: Checkout Code
+        uses: actions/checkout@v3
+
+      - name: Run Tests
+        run: |
+          echo "Running tests..."
+          npm test
+
+  deploy_dev:
+    name: Deploy to Development
+    runs-on: ubuntu-latest
+    needs: test
+    environment: development    # GitHub environment
+    steps:
+      - name: Deploy to Dev
+        run: |
+          echo "Deploying to Development environment..."
+          # Add your dev deployment commands here
+
+  deploy_prod:
+    name: Deploy to Production
+    runs-on: ubuntu-latest
+    needs: deploy_dev
+    environment: production     # GitHub environment
+    steps:
+      - name: Deploy to Prod
+        run: |
+          echo "Deploying to Production environment..."
+          # Add your production deployment commands here
+
+
+
+
+
+
+
+
+
+
+
+# name: build-pipeline # name for the pipeline
+# run-name: "Build by ${{ github.actor }} on branch ${{ github.ref_name }}"  #name for each run of the pipeline ex- Build by alice on branch main, Build by bob on branch feature-login
+
+# on:
+#   push
+
+
+# jobs:
+#   checkout:
+#     runs-on: ubuntu-latest
+#     steps:
+#       - name: Checkout repository
+#         uses: actions/checkout@v3
+
+#   build:
+#     runs-on: ubuntu-latest
+#     steps:
+#       - name: Install the dependency
+#         run: |
+#           - echo "Hello Python"
+#           - 
