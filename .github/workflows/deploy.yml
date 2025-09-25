@@ -44,4 +44,5 @@ jobs:
                 - name: deploy application
                   run: |
                      echo "Deplying applition"
+                     echo " This is the env name : ${{ secrets.ENV_NAME }}"
     # deploy_to_prod:
