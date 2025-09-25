@@ -19,10 +19,19 @@ jobs:
               run: |
                 ls
                 cat docker-compose.yml
+                # dummy artifact 
+                echo "Applition is working fine" > build-output.txt
             
             - name: Check the build job
               run: |
                  echo "This job is working"
+
+            - name: Update artifact
+              uses: actions/upload-artifact@v3
+              with:
+                name: build-artifact
+                path: build-output.txt
+
 
     test:
         name: Testing the job
@@ -34,6 +43,17 @@ jobs:
             - name: test the code
               run: |
                  echo "Testing......."
+            - name: Download artifact
+              uses: actions/download-artifact@v3
+              with:
+                name: build-artifact
+                path: ./artifact
+            
+            - name: test the code
+              run: |
+                ls
+                ls ./artifact
+                cat ./artifact/build-output.txt
                 
     deploy_to_dev:
             name: Deply the application to the cluster
