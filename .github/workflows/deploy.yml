@@ -45,5 +45,5 @@ jobs:
                   run: |
                      echo "Deplying applition"
                      echo " This is the secret name : ${{ secrets.ENV_NAME }}"
-                     echo " This is the env name : ${{ env.NAME }}"
+                     echo " This is the env name : ${{ vars.NAME }}"
     # deploy_to_prod:
