@@ -2,8 +2,7 @@ trigger:
 - main
 
 pool:
-  vmImage: test
-
+  name: 'Default'
 steps:
 - script: echo Hello, world!
   displayName: 'Run a one-line script'
