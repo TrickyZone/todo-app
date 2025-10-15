@@ -25,24 +25,31 @@ variables:
 
 stages:
   - stage: Build
-    displayName: Building the image
+    displayName: Building the code
     jobs:
-    - job:
+    - job: Build_code
+      steps:
+        -  script:  |
+              docker --version
+              az version
+              kubectl version --client
+
   - stage: Test
     displayName: Testing the code
     jobs:
-    - job:
+    - job: Run_Test
+    dependsOn: Build
   - stage: Docker_Build
     displayName: Building the docker aimge
     jobs:
-    - job:
+    - job: Build_Image
   - stage: Deploy_to_Dev
     displayName: Deploy the image in the dev
     jobs:
-    - job:
+    - job: Deploy_dev
   - stage: Deploy_to_Prod
     displayName: Deploy the image to the prod
     jobs:
-    - job: 
+    - job: Deploy_prod
 
 
