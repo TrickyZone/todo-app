@@ -33,6 +33,8 @@ stages:
               docker --version
               az version
               kubectl version --client
+        # - task:
+            
 
   - stage: Test
     displayName: Testing the code
